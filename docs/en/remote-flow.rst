@@ -75,6 +75,19 @@ The details of each step shown in the previous picture are described in the tabl
     - The User is informed by the Wallet Instance that the Autentication succeded, then the protected resource is made available to the User.
 
 
+Remote Flow Discrimination
+--------------------------
+
+When the user initiates a remote authorization request at step [??1], the Relying Party MUST be able to discriminate whether the User needs to establish a Same Device Flow, intended for mobile device, or a Cross Device Flow.
+
+The Relying Party MAY satisy this requirement by analyzing the User Agent of the initiating HTTP Request Header with a Device Detector to guess if the user is using a mobile device.
+
+Moreover, the Relying Party MUST distinguish between Same Device Flow and Cross Device Flow at step [??20]. The outcome of this detection strategy MUST be equal to the decision taken when the user iniziated the flow.
+
+The Relying Party MAY satisfy this requirement by storing the initial decision in the session whose state matches the unique state assigned when the flow initiated [questa frase proprio no].
+It is important to observe that this second detection cannot be evaluated by analyzing the User Agent of the HTTP Request Header made at step [??20] since both flows rely on the same User Agent for request [??20].
+
+
 Request URI with HTTP POST
 --------------------------
 
